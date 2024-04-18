@@ -1,6 +1,6 @@
 import { createApplication } from "@angular/platform-browser"
 import { createCustomElement } from '@angular/elements'
-import { MyButtonComponent } from "../projects/my-button-wc/my-button/my-button.component"
+import { MyButtonComponent } from "../my-button/my-button.component"
 
 (async () => {
   const app = await createApplication({

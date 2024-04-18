@@ -35,7 +35,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -90,6 +90,97 @@
           }
         }
       }
+    },
+    "my-button-wc": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/my-button-wc",
+      "sourceRoot": "projects/my-button-wc/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
+          "options": {
+            "outputPath": "dist/my-button-wc",
+            "index": "projects/my-button-wc/src/index.html",
+            "main": "projects/my-button-wc/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/my-button-wc/tsconfig.app.json",
+            "assets": [
+              "projects/my-button-wc/src/favicon.ico",
+              "projects/my-button-wc/src/assets"
+            ],
+            "styles": [
+              "projects/my-button-wc/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "my-button-wc:build:production"
+            },
+            "development": {
+              "buildTarget": "my-button-wc:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "my-button-wc:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/my-button-wc/tsconfig.spec.json",
+            "assets": [
+              "projects/my-button-wc/src/favicon.ico",
+              "projects/my-button-wc/src/assets"
+            ],
+            "styles": [
+              "projects/my-button-wc/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": "138c26f7-535d-4e8d-8b9d-97f77b47c909"
   }
 }
