@@ -18,7 +18,7 @@ export class MyButtonComponent {
   style = 'border: 1px solid red; display; inline-block; padding: 12px; margin: 12px;';
 
   doFetch() {
-    fetch('http://localhost:8000/remote.json')
+    fetch('http://localhost:8000/assets/remote.json')
       .catch((e: Error) => this.json = e.message)
       .then((r) => r instanceof Response ? r.text() : r)
       .then(t => this.json = t);
