@@ -1,3 +1,5 @@
+Built following an [Angular Architects guide](https://www.angulararchitects.io/blog/angular-elements-web-components-with-standalone-components/)
+
 # Usage
 
 ## Setup
